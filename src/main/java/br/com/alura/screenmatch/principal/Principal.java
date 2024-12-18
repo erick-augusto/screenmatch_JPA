@@ -68,6 +68,9 @@ public class Principal {
         DadosSerie dados = getDadosSerie();
         Serie serie = new Serie(dados);
         //dadosSeries.add(dados);
+        if(serie.getSinopse().length() > 255){
+            serie.setSinopse(serie.getSinopse().substring(0,255));
+        }
         repositorio.save(serie);
         System.out.println(dados);
     }
